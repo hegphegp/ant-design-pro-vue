@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import { analysisMonthBar } from '@/api/analysis'
+
 const tooltip = [
   'x*y',
   (x, y) => ({
@@ -54,8 +56,7 @@ export default {
   },
   methods: {
     getMonthBar () {
-      this.$http.get('/analysis/month-bar')
-        .then(res => {
+      analysisMonthBar().then(res => {
           this.data = res.result
         })
     }

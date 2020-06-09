@@ -135,6 +135,7 @@
 
 <script>
 import { STable } from '@/components'
+import { permission } from '@/api/permission'
 
 export default {
   name: 'TableList',
@@ -192,9 +193,7 @@ export default {
       permissionList: null,
       // 加载数据方法 必须为 Promise 对象
       loadData: parameter => {
-        return this.$http.get('/permission', {
-          params: Object.assign(parameter, this.queryParam)
-        }).then(res => {
+        return permission(Object.assign(parameter, this.queryParam)).then(res => {
           const result = res.result
           result.data.map(permission => {
             permission.actionList = JSON.parse(permission.actionData)

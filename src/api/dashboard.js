@@ -29,6 +29,7 @@ export function workplaceRadar (parameter) {
   return request({
     url: env.url + '/workplace/radar',
     method: 'get',
-    data: parameter
+    data: parameter,
+    hgpData: 2000
   })
 }

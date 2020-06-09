@@ -244,7 +244,9 @@ export default {
     initRadar () {
       this.radarLoading = true
       workplaceRadar().then(res => {
+          console.log(res)
           const dv = new DataSet.View().source(res.result)
+          console.log(dv)
           dv.transform({
             type: 'fold',
             fields: ['个人', '团队', '部门'],

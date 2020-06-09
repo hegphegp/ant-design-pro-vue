@@ -95,6 +95,7 @@
 
 <script>
 import { TagSelect, StandardFormRow, ArticleListContent } from '@/components'
+import { listArticle } from '@/api/article'
 import IconText from './components/IconText'
 const TagSelectOption = TagSelect.Option
 
@@ -146,7 +147,7 @@ export default {
       console.log(`selected ${value}`)
     },
     getList () {
-      this.$http.get('/list/article').then(res => {
+      listArticle().then(res => {
         console.log('res', res)
         this.data = res.result
         this.loading = false
@@ -154,7 +155,7 @@ export default {
     },
     loadMore () {
       this.loadingMore = true
-      this.$http.get('/list/article').then(res => {
+      listArticle().then(res => {
         this.data = this.data.concat(res.result)
       }).finally(() => {
         this.loadingMore = false
