@@ -49,6 +49,8 @@ const user = {
 
     // 获取用户信息
     GetInfo ({ commit }) {
+      console.log(commit)
+      console.log('====================================================')
       return new Promise((resolve, reject) => {
         getInfo().then(response => {
           const result = response.result
