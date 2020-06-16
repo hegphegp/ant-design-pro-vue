@@ -1,6 +1,6 @@
 import storage from 'store'
 import { login, getInfo, logout } from '@/api/login'
-import { ACCESS_TOKEN } from '@/store/mutation-types'
+import { ACCESS_TOKEN } from '@/store/constants'
 import { welcome } from '@/utils/util'
 
 const user = {

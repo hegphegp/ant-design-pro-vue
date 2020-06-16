@@ -32,7 +32,7 @@
 <script>
 import { colorList } from '@/components/SettingDrawer/settingConfig'
 import { baseMixin } from '@/store/app-mixin'
-import { NAV_THEME, TOGGLE_NAV_THEME } from '@/store/mutation-types'
+import { NAV_THEME, TOGGLE_NAV_THEME } from '@/store/constants'
 
 const themeMap = {
   'dark': '暗色',

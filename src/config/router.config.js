@@ -7,7 +7,7 @@ const RouteView = {
   render: (h) => h('router-view')
 }
 
-export const asyncRouterMap = [
+export const needPermissionRoutes = [
 
   {
     path: '/',
@@ -335,7 +335,7 @@ export const asyncRouterMap = [
  * 基础路由
  * @type { *[] }
  */
-export const constantRouterMap = [
+export const noNeedPermissionRoutes = [
   {
     path: '/user',
     component: UserLayout,

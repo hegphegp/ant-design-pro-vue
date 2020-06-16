@@ -1,4 +1,4 @@
-import { asyncRouterMap, constantRouterMap } from '@/config/router.config'
+import { needPermissionRoutes, noNeedPermissionRoutes } from '@/config/router.config'
 
 /**
  * 过滤账户是否拥有某一个权限，并将菜单从加载列表移除
@@ -37,8 +37,8 @@ function hasRole(roles, route) {
   }
 }
 
-function filterAsyncRouter (routerMap, roles) {
-  const accessedRouters = routerMap.filter(route => {
+function filterAsyncRouter (routers, roles) {
+  const accessedRouters = routers.filter(route => {
     if (hasPermission(roles.permissionList, route)) {
       if (route.children && route.children.length) {
         route.children = filterAsyncRouter(route.children, roles)
@@ -52,20 +52,21 @@ function filterAsyncRouter (routerMap, roles) {
 
 const permission = {
   state: {
-    routers: constantRouterMap,
+    routers: noNeedPermissionRoutes,
     addRouters: []
   },
   mutations: {
     SET_ROUTERS: (state, routers) => {
       state.addRouters = routers
-      state.routers = constantRouterMap.concat(routers)
+      state.routers = noNeedPermissionRoutes.concat(routers)
     }
   },
   actions: {
     GenerateRoutes ({ commit }, data) {
       return new Promise(resolve => {
         const { roles } = data
-        const accessedRouters = filterAsyncRouter(asyncRouterMap, roles)
+        // 后端返回的肯定是构建好的菜单树，在这里把component封装到菜单树里面，不要ant-design-vue-pro的逻辑，太鸡肘了
+        const accessedRouters = filterAsyncRouter(needPermissionRoutes, roles)
         commit('SET_ROUTERS', accessedRouters)
         resolve()
       })

@@ -13,7 +13,7 @@ import {
   TOGGLE_MULTI_TAB,
   // i18n
   APP_LANGUAGE
-} from '@/store/mutation-types'
+} from '@/store/constants'
 import { loadLanguageAsync } from '@/locales'
 
 const app = {

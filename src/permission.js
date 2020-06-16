@@ -5,7 +5,7 @@ import storage from 'store'
 import NProgress from 'nprogress' // progress bar
 import '@/components/NProgress/nprogress.less' // progress bar custom style
 import notification from 'ant-design-vue/es/notification'
-import { ACCESS_TOKEN } from '@/store/mutation-types'
+import { ACCESS_TOKEN } from '@/store/constants'
 import config from '@/config/defaultSettings'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration

@@ -8,7 +8,7 @@ import {
   TOGGLE_FIXED_SIDEBAR, TOGGLE_HIDE_HEADER,
   TOGGLE_LAYOUT, TOGGLE_NAV_THEME, TOGGLE_WEAK,
   TOGGLE_COLOR, TOGGLE_MULTI_TAB
-} from '@/store/mutation-types'
+} from '@/store/constants'
 import { printANSI } from '@/utils/screenLog'
 import defaultSettings from '@/config/defaultSettings'
 
